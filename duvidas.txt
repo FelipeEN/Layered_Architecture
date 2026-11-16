@@ -1,0 +1,18 @@
+affected rows = linhas afetadas
+Singleton = Instancia unica
+--------------------------------------------------------
+Qual é a diferença da resposabilade da pasta database e repositories,
+na arquitetura por camadas não usamos a pasta chamada database?
+
+Uma diferença que percebir é que usamos class em vez de funções, em meus projetos
+eu acostumava fazer com funções, me explique o conceito de fazer com class 
+e se é melhor o porque é melhor 
+
+
+Por que no metodo  markASCompleted não existe uma const ? 
+
+No final exportamos e iniciamos a classe é bem diferente de quando usamos com a função que só 
+colocamos export e os nome da função a frente, me explique este conceito  
+
+
+
