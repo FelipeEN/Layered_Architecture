@@ -15,4 +15,23 @@ No final exportamos e iniciamos a classe é bem diferente de quando usamos com a
 colocamos export e os nome da função a frente, me explique este conceito  
 
 
+quando convertemos o id para Number no metodo completeTask no services, no caso se for 1 vai ser true e 0 false ? 
 
+qual é a diferença do 400 e 409 404
+
+No caso não precisamos trazer fazer o metodo findById para o metodo deleteTask ? 
+Eu pensei em fazer uma constante que iria receber o metodo findById, se essa constante retornasse false
+eu iria tratar o error, caso  passe eu chamaria com o return await taskRepositories.delete(Number(id)), 
+por que fazemos dessa forma, ? "async deleteTask(id) {
+    const deleted = await taskRepository.delete(Number(id));
+
+    if (!deleted) {
+      const error = new Error('Tarefa não encontrada para exclusão.');
+      error.statusCode = 404;
+      throw error;
+    }
+  }"  me explique 
+
+
+  me explique a ideia do err na função do middleware eu conhecia apenas o req,res,next
+  
