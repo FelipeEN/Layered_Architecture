@@ -33,7 +33,7 @@ export class TaskRepository {
         )
         return this.findById(id)
     }
-
+    
     async delete (id){
         const [result] = await this.db.query('DELETE FROM tasks WHERE id = ? ', [id])
         return result.affectedRows > 0 ;   

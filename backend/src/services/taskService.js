@@ -11,7 +11,7 @@ export class TaskService {
     async createTask(title){
         
         if( !title || title.trim().length < 3  ){
-            const error = new Error("O titulo da tarefa deve ter pelo menos 3 caractertes")
+            const error = new Error("O titulo da tarefa deve ter pelo menos 3 caracteres")
             error.statusCode = 400
             throw error
         }

@@ -1,3 +1,5 @@
+.N-Tier Architecture,Layered Architecture, Arquitetura em Camadas
+---------------------------------------------------------
 affected rows = linhas afetadas
 Singleton = Instancia unica
 --------------------------------------------------------
@@ -49,4 +51,10 @@ para alguem como funciona essa estrutura?
 eu tenho um pouco de duvida qual é a diferença do PUT para o PATCH ? os dois atualiza, 
 porém ja fiz projetos que foi utilizado PUT e outros o PATCH 
 
-nas outras conecções em projetos nunca usei o conn.release() qual é o conceito dessa chamada  ? 
+nas outras conecções em projetos nunca usei o conn.release() qual é o conceito dessa chamada  ?
+
+como funciona o teste unitários ? qual é o conceito e para que usamos e quando devemos usar?
+
+me diga sobre essa ferramentas describe , it , mock eu não conheço nenhum 
+
+se o teste fazemos sem conectar com o banco de dados porque a função no describe deve ser async
