@@ -35,3 +35,18 @@ por que fazemos dessa forma, ? "async deleteTask(id) {
 
   me explique a ideia do err na função do middleware eu conhecia apenas o req,res,next
   
+  uma coisa que percebir que depois que coloquei com o "this" 
+  não aparece as sugestões dos metodos quando eu estou digitando,
+  tambem quando aperto ctrl + o clique esquerdo do mouse ele não para o metodo o que pode ser, é normal ?
+
+em routes quando eu fazia sem ser nessa estrutura eu lembro que chamava a rota com uma função do controller
+sem passar o req,res,next. me explique esse conceito, porque a sintaxe está maior dessa forma por exemplo:
+router.get('/', (req, res, next) => taskController.getAll(req, res, next))  ?
+
+qual é o conceito de injeção de dependencia, ainda não intendi direito, como que eu posso explicar
+para alguem como funciona essa estrutura?
+
+eu tenho um pouco de duvida qual é a diferença do PUT para o PATCH ? os dois atualiza, 
+porém ja fiz projetos que foi utilizado PUT e outros o PATCH 
+
+nas outras conecções em projetos nunca usei o conn.release() qual é o conceito dessa chamada  ? 
