@@ -1,31 +1,34 @@
-import taskRepository from "../repositories/taskRepository";
+export class TaskService {
+    
+    constructor(taskRepository){
+        this.taskRepository = taskRepository
+    }
 
-class TaskService {
     async listTasks(){
-        return await taskRepository.findAll()
+        return await this.taskRepository.findAll()
     }
 
     async createTask(title){
         
-        if(title.trim().length < 3 || !title ){
+        if( !title || title.trim().length < 3  ){
             const error = new Error("O titulo da tarefa deve ter pelo menos 3 caractertes")
             error.statusCode = 400
             throw error
         }
 
-        const existingTask = await taskRepository.findByTitlle(title.trim())
+        const existingTask = await this.taskRepository.findByTitle(title.trim())
         if(existingTask){
             const error = new Error("Ja existe uma tarefa com este titulo");
             error.statusCode = 409;
             throw error;
         }
 
-        return await taskRepository.create({title: title.trim()})
+        return await this.taskRepository.create({title: title.trim()})
     }
 
     async completeTask(id){
 
-        const task = await taskRepository.findById(Number(id))
+        const task = await this.taskRepository.findById(Number(id))
         
         if(!task){
             const error = new Error("Tarefa não encontrada!")
@@ -39,18 +42,16 @@ class TaskService {
          throw error   
         }
         
-        return await taskRepository.markAsCompleted(Number(id))
+        return await this.taskRepository.markAsCompleted(Number(id))
     }
 
     async deleteTask(id){
-        const deleted = await taskRepository.delete(Number(id))
+        const deleted = await this.taskRepository.delete(Number(id))
         
         if(!deleted){
             const error = new Error("Tarefa não encontrada para exclusão")
             error.statusCode = 404
-            return error
+            throw error
         }   
     }
 }
-
-export default new TaskService() 

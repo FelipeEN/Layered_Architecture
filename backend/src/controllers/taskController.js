@@ -1,9 +1,11 @@
-import taskService from "../services/taskService";
-
-class TaskController{
+export class TaskController{
+    constructor(taskService){
+        this.taskService = taskService
+    }
+    
     async getAll (req,res,next){
         try{
-            const tasks = await taskService.listTasks()
+            const tasks = await this.taskService.listTasks()
             return res.status(200).json(tasks)
         }catch(error){
             next(error)
@@ -13,7 +15,7 @@ class TaskController{
     async create (req,res,next){
         try{
             const {title} =  req.body
-            const newTasks = await taskService.createTask(title)
+            const newTasks = await this.taskService.createTask(title)
             return res.status(201).json(newTasks)
         }catch(error){
             next(error)
@@ -24,7 +26,7 @@ class TaskController{
     async completed (req,res,next){
         try{
             const {id} = req.params
-            const completeTasks = await taskService.completeTask(id)
+            const completeTasks = await this.taskService.completeTask(id)
             return res.status(200).json(completeTasks)
         }catch(error){
             next(error)
@@ -32,15 +34,13 @@ class TaskController{
     }
 
 
-    async delete (id){
+    async delete (req,res,next){
         try{
             const {id}= req.params
-            const deleteTasks = await taskService.deleteTask(id)
-            return req.status(204).json(deleteTasks)
+            await this.taskService.deleteTask(id)
+            return res.status(204).send()
         }catch(error){
             next(error)
         }
     }
 }
-
-export default new TaskController()
